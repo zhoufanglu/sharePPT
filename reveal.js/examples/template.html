@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Slide Transitions</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+		<style type="text/css" media="screen">
+			.slides section.has-dark-background,
+			.slides section.has-dark-background h3 {
+				color: #fff;
+			}
+			.slides section.has-light-background,
+			.slides section.has-light-background h3 {
+				color: #222;
+			}
+
+			#left {
+				margin: 10px 0 15px 20px;
+				text-align: left;
+				float: left;
+				z-index:-10;
+				width:48%;
+				font-size: 0.85em;
+				line-height: 1.5;
+			}
+
+			#right {
+				margin: 10px 0 15px 0;
+				float: right;
+				text-align: left;
+				z-index:-10;
+				width:48%;
+				font-size: 0.85em;
+				line-height: 1.5;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides" data-transition="convex-in concave-out">
+				<section>
+					<section>
+						<h3 style="font-family:'STLiti',华文隶书"><font color="#3E7FEE">讲一讲</font></h3>
+						<h5 style="text-transform:none">季度总结</h5>
+						<br />
+						<br />
+						<p> <small>By <a href="" target="_blank">卢方舟</a> </small> </p>
+					</section>
+				</section>
+
+				<!--<section style="text-align: left;" data-transition="convex-in concave-out">
+					<h5>项目架子重构</h5>
+					<hr style="transition:width 0.5s linear" />
+					<div class="catalog-p">
+						<p>一、环境变量</p>
+						<p>二、路由-router</p>
+						<p>三、接口-interface</p>
+					</div>
+					<hr />
+				</section>-->
+				<!--环境变量-->
+				<section data-transition="convex-in concave-out">
+					<!-- 下箭头翻页 1-->
+					<section>
+						<h3>环境变量优化</h3>
+						<ul>
+							<li>新增变量文件</li>
+							<li>新增分析环境-analyze</li>
+						</ul>
+					</section>
+					<!--webpack-->
+					<section style="text-align: left;">
+						<!--<p style="font-size:25px">环境变量优化</p>
+						<div class="my_div">
+							<img src="./assets/img/report_1/envVar.png" align="middle" />
+						</div>-->
+						<!--<section data-markdown="./季度报告1/环境分析.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>-->
+						<div id="left">
+							<h6>环境变量文件</h6>
+							<img src="./assets/img/report_1/envVar.png" alt="">
+						</div>
+						<div id="right">
+							<h6>新增分析环境</h6>
+							<a href="http://127.0.0.1:8888/">analyze</a>
+						</div>
+					</section>
+				</section>
+				<!--data-markdown-->
+				<section data-transition="convex-in concave-out">
+					<div style="text-align: left">
+						<h4 style="color:#3e7fee;">vue2.5 -> 2.6</h4>
+						<p style="margin-left: 100px">例如使用插槽的新语法等、</p>
+						<h4 style="color:#3e7fee;">less -> scss</h4>
+						<p style="margin-left: 100px">增加新的预处理器scss, 可以在css内更流畅的写一些逻辑代码</p>
+					</div>
+				</section>
+
+				<section data-markdown="" data-transition="convex-in concave-out">
+					### 增加mock
+					>模拟后端接口数据
+					```js
+					//获取库存信息
+					Mock.mock("getRepertoryInfo", {
+						"repertoryList|200-500": [
+							{
+							name: Random.ctitle(),
+							"id|+1": 1,
+							"number|1-100": 0,
+							},
+						],
+					});
+					```
+					<div style="text-align: left">
+						<!--<h4 style="color:#3e7fee;">数据模拟-mock.js</h4>
+						<p style="margin-left: 100px">模拟后端接口数据</p>-->
+					</div>
+				</section>
+
+				<section data-transition="convex-in concave-out">
+					<div style="text-align: left">
+						<h4 style="color:#3e7fee;">接口重构</h4>
+						<p style="margin-left: 100px">fetch->axios</p>
+						<h4 style="color:#3e7fee;">区别</h4>
+						<p style="margin-left: 100px">
+							<span>由于项目内部接口封装太乱，没有分模块。</span><br>
+							<span>fetch 基于原生js,功能较少</span><br>
+							<span>axios 丰富的功能,更加推荐</span><br>
+							<a href="https://zhuanlan.zhihu.com/p/58062212">参考</a>
+						</p>
+					</div>
+				</section>
+
+				<!--# 震惊！国内某数字消费资讯网站竟提供这种服务
+
+				* 🔧 效率工具推荐 & 生产力技巧
+
+				* 💰 这些产品值得买
+
+				* 🔭 这个技术你会懂
+
+				* 👍 什么是最好的？-->
+
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				dependencies: [
+
+					// 解析 <section> 元素里的 Markdown 内容
+					//{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					// <code> 元素语法高亮
+					//{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+					// Alt+click 缩放点击元素
+					//{ src: '../plugin/zoom-js/zoom.js', async: true },
+
+				],
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			/**
+			 * 参考
+			 * https://juejin.cn/post/6890545920883032071
+			 */
+		</script>
+
+	</body>
+</html>

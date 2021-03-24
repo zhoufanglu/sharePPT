@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Slide Transitions</title>
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+
+		<style type="text/css" media="screen">
+			.slides section.has-dark-background,
+			.slides section.has-dark-background h3 {
+				color: #fff;
+			}
+			.slides section.has-light-background,
+			.slides section.has-light-background h3 {
+				color: #222;
+			}
+
+			#left {
+				margin: 10px 0 15px 20px;
+				text-align: left;
+				float: left;
+				z-index:-10;
+				width:48%;
+				font-size: 0.85em;
+				line-height: 1.5;
+			}
+
+			#right {
+				margin: 10px 0 15px 0;
+				float: right;
+				text-align: left;
+				z-index:-10;
+				width:48%;
+				font-size: 0.85em;
+				line-height: 1.5;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides" data-transition="convex-in concave-out">
+				<section>
+					<section>
+						<h3 style="font-family:'STLiti',华文隶书"><font color="#3E7FEE">聊一聊</font></h3>
+						<h5 style="text-transform:none">VUE3 🎉🎉🎉</h5>
+						<br />
+						<br />
+						<p> <small>分享By <a href="" target="_blank">卢方舟</a> </small> </p>
+					</section>
+					<section data-markdown data-transition="convex-in concave-out">
+						<script type="text/template">
+							#### vue3做了些什么
+							* 分层内部模块(`tree-shaking`)
+								<!--(Layered internal modules)
+								https://juejin.cn/post/6844903544756109319
+								通过tree-shaking来减少javascript运行的体积
+								-->
+							* 用于处理大规模用例的新 API<!-- (解决大型应用的痛点)-->
+							* 性能的提升<!--(体积减少约41%,渲染速度55%,内存使用率降低54%)-->
+							* 更好的适配`Typescript` <!--同时支持了jsx与tsx-->
+						</script>
+					</section>
+				</section>
+
+				<section style="text-align: left;" data-transition="convex-in concave-out">
+					<h5>目录</h5>
+					<hr style="transition:width 0.5s linear" />
+					<div class="catalog-p">
+						<p>一、项目创建方式</p>
+						<p>二、生命周期</p>
+						<p>三、API的变化</p>
+						<p>四、响应性Api</p>
+					</div>
+					<hr />
+				</section>
+				<!--一-项目创建-->
+				<section data-transition="convex-in concave-out">
+					<!-- 下箭头翻页 1-->
+					<section>
+						<h3>一、两种创建方式</h3>
+						<ul>
+							<li>vue-cli4+</li>
+							<li>vite 2.0</li>
+						</ul>
+					</section>
+					<!--webpack-->
+					<section style="text-align: left;">
+						<p style="font-size:25px">webpack-a</p>
+						<div class="my_div">
+							<img src="./assets/img/vue3/webpack-a.gif" align="middle" />
+						</div>
+					</section>
+					<section style="text-align: left;">
+						<p style="font-size:25px">webpack-b</p>
+						<div class="my_div">
+							<img style="height: 90%;width: 90%;" src="./assets/img/vue3/webpack-b.png" align="middle" />
+						</div>
+					</section>
+					<!--vite-->
+					<section style="text-align: left;">
+						<p style="font-size:25px">vite-a</p>
+						<div class="my_div">
+							<img width="1000" src="./assets/img/vue3/vite-b.png" align="middle" />
+						</div>
+					</section>
+
+					<section style="text-align: left;">
+						<p style="font-size:25px">vite-b</p>
+						<div class="my_div">
+							<img src="./assets/img/vue3/vitePage.png" align="middle" />
+						</div>
+					</section>
+
+					<section>
+						<h4>速度对比</h4>
+						<ul>
+							<li style="display: flex;align-items: center;">
+								<span style="width: 200px">vue-cli4</span>
+								<img src="./assets/img/vue3/cli-start.png" alt=""> <br>
+							</li>
+							<li style="display: flex;align-items: center;">
+								<span style="width: 200px">vite</span>
+								<img src="./assets/img/vue3/vite-start.png" alt="">
+							</li>
+						</ul>
+						<!--<p class="fragment" style="font-size: 20px;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vite基于浏览器原生ES Modules开发，在服务器按需返回，跳过了打包
+							这个概念，服务器随起随用,支持热更新，热更新速度不会随模块增加而变慢
+						</p>-->
+						<!--<div>
+							<strong>vite:</strong>
+							<span>基于浏览器原生ES imports的开发服务器。跳过打包这个概念，服务端按需编译返回。</span>
+						</div>-->
+<!--						Vite 劫持了这些请求，并在后端进行相应的处理（比如将 Vue 文件拆分成
+ 							template、style、script 三个部分），然后再返回给浏览器。
+ 							由于浏览器只会对用到的模块发起 HTTP 请求，
+ 							所以 Vite 没必要对项目里所有的文件先打包后返回，而是只编译浏览器发起 HTTP 请求的模块即可。这里是不是有点按需加载的味道？
+ 							-->
+					</section>
+
+					<!--<section data-transition="convex-in concave-out">
+						<h4 style="text-align: left;">两者对比:</h4>
+						<ul style="font-size:30px">
+							<li style="list-style-type:none;">✍ vue-cli：
+								<ul>
+									<li>嵌入式✘</li>
+								</ul> </li>
+							<li style="list-style-type:none;">✍ vite：
+								<ul>
+									<li>模型训练和预测均在线上</li>
+									<li>模型训练在线下(模型文件，pickle文件，二进制文件等保存模型必要的参数，超参数和模型结构)然后线上做预测</li>
+								</ul> </li>
+						</ul>
+					</section>-->
+
+
+					<section data-markdown="./vue3与vue2/vueCli与vite对比.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+
+
+
+					<section style="text-align: left;">
+						<p style="font-size:25px">未来</p>
+						<div class="my_div">
+							<img style="width: 70%;" src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5502698906fc4a74abef3ab9ea839059~tplv-k3u1fbpfcp-zoom-1.image" align="middle" />
+						</div>
+					</section>
+
+
+
+				</section>
+				<!--二-生命周期-->
+				<!--
+				Creation——组件创建时运行
+				Mounting——挂载在DOM时运行
+				Updates——响应数据修改时运行
+				Destruction——元素销毁前运行
+				-->
+
+				<!--# 震惊！国内某数字消费资讯网站竟提供这种服务
+
+				* 🔧 效率工具推荐 & 生产力技巧
+
+				* 💰 这些产品值得买
+
+				* 🔭 这个技术你会懂
+
+				* 👍 什么是最好的？-->
+
+				<section data-transition="convex-in concave-out">
+					<section>
+						<h3>二、生命周期</h3>
+						<p>vue实例从创建到销毁的过程</p>
+					</section>
+					<!--a-->
+					<section style="text-align: left;">
+						<p style="font-size:25px">生命周期变化</p>
+						<div class="my_div">
+							<img src="./assets/img/vue3/生命周期.png" align="middle" />
+						</div>
+					</section>
+					<!--b-->
+					<section data-markdown="./vue3与vue2/lifeCycle.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+
+				</section>
+
+
+
+				<!--三-Api的变化-->
+				<section data-transition="convex-in concave-out">
+					<!-- 下箭头翻页 1-->
+					<section>
+						<h3>三、API的变化</h3>
+						<ul>
+							<li>VUE2 - options Api</li>
+							<div class="fragment" style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								一个功能分散到了不同的vue的配置项中 <!--项目大了比较混乱-->
+							</div>
+
+							<li>VUE3 - composition Api</li>
+							<div class="fragment" style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								代码根据逻辑功能来组织的，一个功能的所有api会放在一起（高内聚，低耦合）
+								<!--
+								内聚：每个模块尽可能独立完成自己的功能，不依赖于模块外部的代码。
+								耦合：模块与模块之间接口的复杂程度，模块之间联系越复杂耦合度越高，牵一发而动全身。
+								-->
+							</div>
+
+						</ul>
+					</section>
+					<section>
+						<!--随着业务复杂度越来越高，代码量会不断的加大；
+						由于相关业务的代码需要遵循option的配置写到特定的区域，
+						导致后续维护非常的复杂，代码可复用性也不高。-->
+						<h4>options Api</h4>
+						<div id="left">
+							<img alt="" class="lazyload inited loaded" data-src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/568b0ced69f241d282cf2c512e4e5f33~tplv-k3u1fbpfcp-watermark.image" data-width="800" data-height="600" src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/568b0ced69f241d282cf2c512e4e5f33~tplv-k3u1fbpfcp-watermark.image">
+						</div>
+						<div id="right">
+							<div class="fragment" style="font-size: 24px;margin-top: 30px;">
+								<h4>缺点：</h4>
+								<ul>
+									<li>光标反复横跳</li>
+									<li>mixin命名重复</li>
+									<li>this的多次使用</li>
+									<li>功能多了之后不易维护</li>
+								</ul>
+							</div>
+						</div>
+
+<!--						缺陷-mixin,this,反复横跳-->
+					</section>
+
+					<section>
+						<!--显然我们可以更加优雅的组织我们的代码，函数。
+						让相关功能的代码更加有序的组织在一起-->
+						<h4>composition Api</h4>
+						<img alt="" class="lazyload inited loaded" data-src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d05799744a6341fd908ec03e5916d7b6~tplv-k3u1fbpfcp-watermark.image" data-width="800" data-height="600" src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d05799744a6341fd908ec03e5916d7b6~tplv-k3u1fbpfcp-watermark.image">
+					</section>
+				</section>
+				<!--四-部分 API-->
+				<section data-transition="convex-in concave-out">
+					<section>
+						<h3>四-响应性基础Api</h3>
+						<ul>
+							<li>ref</li>
+							<li>reactive</li>
+							<li>toRefs</li><!--解构响应式对象数据, 保持数据的响应性-->
+							<li>readonly</li>
+							<li>isProxy</li>
+							<div>.</div>
+							<div>.</div>
+						</ul>
+					</section>
+					<section data-markdown="./vue3与vue2/refReactive.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
+
+				</section>
+
+				<section data-markdown data-transition="convex-in concave-out">
+					<script type="text/template">
+						## THANKS🎉🎉🎉
+
+					</script>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				dependencies: [
+
+					// 解析 <section> 元素里的 Markdown 内容
+					//{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					// <code> 元素语法高亮
+					//{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+					// Alt+click 缩放点击元素
+					//{ src: '../plugin/zoom-js/zoom.js', async: true },
+
+				],
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			/**
+			 * 参考
+			 * https://juejin.cn/post/6890545920883032071
+			 */
+		</script>
+
+	</body>
+</html>
