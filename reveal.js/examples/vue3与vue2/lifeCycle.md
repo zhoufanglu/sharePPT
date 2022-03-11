@@ -1,6 +1,6 @@
 <div id="left">
 
-## ✰ VUE2
+### ✰ VUE2
 ```javascript
 export default {
   beforeCreate() {},
@@ -25,13 +25,11 @@ export default {
 
 <div id="right">
 
-## ✧ VUE3
+### ✧ VUE3
 ``` javascript
 export default {
   setup() {
-  
-  
-  
+ 
     onBeforeMount(_=>{})
     
     onMounted(_=>{})

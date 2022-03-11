@@ -60,12 +60,18 @@
 						<script type="text/template">
 							#### vue3做了些什么
 							* 分层内部模块(`tree-shaking`)
+                            <!--
+                            基于函数的 API 每一个函数都可以作为 named ES export 被单独引入，
+                            这使得它们对 tree-shaking 非常友好。没有被使用的 API 的相关代码可以在最终打包时被移除。
+                            同时，基于函数 API 所写的代码也有更好的压缩效率，因为所有的函数名和 setup 函数体内部的变量名都可以被压缩，
+                            但对象和 class 的属性/方法名却不可以。
+                            -->
 								<!--(Layered internal modules)
 								https://juejin.cn/post/6844903544756109319
 								通过tree-shaking来减少javascript运行的体积
 								-->
 							* 用于处理大规模用例的新 API<!-- (解决大型应用的痛点)-->
-							* 性能的提升<!--(体积减少约41%,渲染速度55%,内存使用率降低54%)-->
+							* 运行性能的提升<!--(体积减少约41%,渲染速度55%,内存使用率降低54%)-->
 							* 更好的适配`Typescript` <!--同时支持了jsx与tsx-->
 						</script>
 					</section>
@@ -75,7 +81,7 @@
 					<h5>目录</h5>
 					<hr style="transition:width 0.5s linear" />
 					<div class="catalog-p">
-						<p>一、项目创建方式</p>
+						<p>一、全新的构建工具</p>
 						<p>二、生命周期</p>
 						<p>三、API的变化</p>
 						<p>四、响应性Api</p>
@@ -86,10 +92,10 @@
 				<section data-transition="convex-in concave-out">
 					<!-- 下箭头翻页 1-->
 					<section>
-						<h3>一、两种创建方式</h3>
+						<h3>一、两种构建方式</h3>
 						<ul>
-							<li>vue-cli4+</li>
-							<li>vite 2.0</li>
+							<li>webpack</li>
+							<li>vite</li>
 						</ul>
 					</section>
 					<!--webpack-->
@@ -105,7 +111,9 @@
 							<img style="height: 90%;width: 90%;" src="./assets/img/vue3/webpack-b.png" align="middle" />
 						</div>
 					</section>
-					<!--vite-->
+					<!--vite
+					这样就把原本一个 .vue 的文件拆成了2个请求（分别对应 template和script、style ）
+					-->
 					<section style="text-align: left;">
 						<p style="font-size:25px">vite-a</p>
 						<div class="my_div">
@@ -119,9 +127,21 @@
 							<img src="./assets/img/vue3/vitePage.png" align="middle" />
 						</div>
 					</section>
+                    <!--速度对比markdown-->
+                    <section
+                            data-markdown="./vue3与vue2/速度对比.md"
+                            data-separator="^\n\n\n"
+                            data-separator-vertical="^\n\n">
 
-					<section>
+                    </section>
+
+					<!--<section>
 						<h4>速度对比</h4>
+                        <table>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </table>
 						<ul>
 							<li style="display: flex;align-items: center;">
 								<span style="width: 200px">vue-cli4</span>
@@ -132,19 +152,19 @@
 								<img src="./assets/img/vue3/vite-start.png" alt="">
 							</li>
 						</ul>
-						<!--<p class="fragment" style="font-size: 20px;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vite基于浏览器原生ES Modules开发，在服务器按需返回，跳过了打包
+						&lt;!&ndash;<p class="fragment" style="font-size: 20px;text-align: left;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vite基于浏览器原生ES Modules开发，在服务器按需返回，跳过了打包
 							这个概念，服务器随起随用,支持热更新，热更新速度不会随模块增加而变慢
-						</p>-->
-						<!--<div>
+						</p>&ndash;&gt;
+						&lt;!&ndash;<div>
 							<strong>vite:</strong>
 							<span>基于浏览器原生ES imports的开发服务器。跳过打包这个概念，服务端按需编译返回。</span>
-						</div>-->
-<!--						Vite 劫持了这些请求，并在后端进行相应的处理（比如将 Vue 文件拆分成
+						</div>&ndash;&gt;
+&lt;!&ndash;						Vite 劫持了这些请求，并在后端进行相应的处理（比如将 Vue 文件拆分成
  							template、style、script 三个部分），然后再返回给浏览器。
  							由于浏览器只会对用到的模块发起 HTTP 请求，
  							所以 Vite 没必要对项目里所有的文件先打包后返回，而是只编译浏览器发起 HTTP 请求的模块即可。这里是不是有点按需加载的味道？
- 							-->
-					</section>
+ 							&ndash;&gt;
+					</section>-->
 
 					<!--<section data-transition="convex-in concave-out">
 						<h4 style="text-align: left;">两者对比:</h4>
@@ -170,7 +190,7 @@
 					<section style="text-align: left;">
 						<p style="font-size:25px">未来</p>
 						<div class="my_div">
-							<img style="width: 70%;" src="//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5502698906fc4a74abef3ab9ea839059~tplv-k3u1fbpfcp-zoom-1.image" align="middle" />
+							<img style="width: 70%;" src="./assets/img/vue3/官方say.png" align="middle" />
 						</div>
 					</section>
 
@@ -250,9 +270,9 @@
 								<h4>缺点：</h4>
 								<ul>
 									<li>光标反复横跳</li>
-									<li>mixin命名重复</li>
+									<li>mixins不够灵活</li>
 									<li>this的多次使用</li>
-									<li>功能多了之后不易维护</li>
+									<li>typescript提示不太友好</li>
 								</ul>
 							</div>
 						</div>

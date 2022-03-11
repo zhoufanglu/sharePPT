@@ -40,6 +40,7 @@
 				line-height: 1.5;
 			}
 
+
 		</style>
 	</head>
 
@@ -50,11 +51,14 @@
 			<div class="slides" data-transition="convex-in concave-out">
 				<section>
 					<section>
-						<h3 style="font-family:'STLiti',华文隶书"><font color="#3E7FEE">讲一讲</font></h3>
+						<h3 style="font-family:'STLiti',华文隶书"><font color="#3E7FEE">说一说</font></h3>
 						<h5 style="text-transform:none">季度总结</h5>
 						<br />
+						<h6 style="color:#3E7FEE">A-从项目构建角度出发</h6>
+						<h6 style="color:#3E7FEE">B-从项目业务角度出发</h6>
+						<h6 style="color:#3E7FEE">C-OKR &#8195;&#8195;&#8195;&#8195;&#8195;&#8195;&#8195;</h6>
 						<br />
-						<p> <small>By <a href="" target="_blank">卢方舟</a> </small> </p>
+						<p> <small>By <a href="https://zhoufanglu.github.io/vuepressBlog/" target="_blank">卢方舟</a> </small> </p>
 					</section>
 				</section>
 
@@ -72,7 +76,7 @@
 				<section data-transition="convex-in concave-out">
 					<!-- 下箭头翻页 1-->
 					<section>
-						<h3>环境变量优化</h3>
+						<h4 style="color:#3e7fee;">环境变量优化</h4>
 						<ul>
 							<li>新增变量文件</li>
 							<li>新增分析环境-analyze</li>
@@ -90,8 +94,8 @@
 							<img src="./assets/img/report_1/envVar.png" alt="">
 						</div>
 						<div id="right">
-							<h6>新增分析环境</h6>
-							<a href="http://127.0.0.1:8888/">analyze</a>
+							<h6>新增分析环境-analyze</h6>
+							<img src="./季度报告1/fenxi.png" alt="">
 						</div>
 					</section>
 				</section>
@@ -104,51 +108,99 @@
 						<p style="margin-left: 100px">增加新的预处理器scss, 可以在css内更流畅的写一些逻辑代码</p>
 					</div>
 				</section>
+				<!--mock-->
+				<section data-transition="convex-in concave-out">
+					<section data-transition="convex-in concave-out">
+						<div style="text-align: left">
+							<h4 style="color:#3e7fee;">增加mock环境</h4>
+							<p style="margin-left: 100px">数据模拟</p>
+						</div>
+					</section>
+					<section data-markdown="./季度报告1/mock.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n"></section>
 
-				<section data-markdown="" data-transition="convex-in concave-out">
-					### 增加mock
-					>模拟后端接口数据
-					```js
-					//获取库存信息
-					Mock.mock("getRepertoryInfo", {
-						"repertoryList|200-500": [
-							{
-							name: Random.ctitle(),
-							"id|+1": 1,
-							"number|1-100": 0,
-							},
-						],
-					});
-					```
-					<div style="text-align: left">
-						<!--<h4 style="color:#3e7fee;">数据模拟-mock.js</h4>
-						<p style="margin-left: 100px">模拟后端接口数据</p>-->
-					</div>
 				</section>
 
+				<!--axios-->
 				<section data-transition="convex-in concave-out">
 					<div style="text-align: left">
 						<h4 style="color:#3e7fee;">接口重构</h4>
-						<p style="margin-left: 100px">fetch->axios</p>
+						<p style="margin-left: 100px">fetch → axios</p>
 						<h4 style="color:#3e7fee;">区别</h4>
 						<p style="margin-left: 100px">
-							<span>由于项目内部接口封装太乱，没有分模块。</span><br>
-							<span>fetch 基于原生js,功能较少</span><br>
-							<span>axios 丰富的功能,更加推荐</span><br>
+							<span>---由于项目内部接口封装太乱，没有分模块。</span><br>
+							<span>---fetch 基于原生js,功能较少</span><br>
+							<span>---axios 丰富的功能,更加推荐 等等</span><br>
 							<a href="https://zhuanlan.zhihu.com/p/58062212">参考</a>
 						</p>
 					</div>
 				</section>
 
-				<!--# 震惊！国内某数字消费资讯网站竟提供这种服务
+				<!--webpack优化-->
+				<!--<section>
+					<h4 style="color:#3e7fee; text-align: left">webpack插件优化</h4>
 
-				* 🔧 效率工具推荐 & 生产力技巧
+					<div style="margin-left: 100px">
+						<p style="text-align: left">可视化分析</p>
+						<p style="text-align: left">代码压缩</p>
+						<p style="text-align: left">日志打印去除</p>
+						<p style="text-align: left">图片压缩</p>
+					</div>
+				</section>-->
 
-				* 💰 这些产品值得买
+				<!--<section data-markdown="./季度报告1/okr.md" data-transition="convex-in concave-out">
+				</section>-->
 
-				* 🔭 这个技术你会懂
+				<section data-transition="convex-in concave-out">
+					<h5 style="color: #3e7fee">业务角度</h5>
+					<img src="./季度报告1/流程图.png">
+				</section>
 
-				* 👍 什么是最好的？-->
+				<!--OKR-->
+				<section data-transition="convex-in concave-out">
+
+					<section>
+						<h4>第一季度OKR</h4>
+						<ul>
+							<li>目标1</li>
+							<div style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								提高代码质量，学习公司项目内容，充分了解分析需求，更优的完成项目任务
+								（90分）
+							</div>
+
+							<li>目标2</li>
+							<div style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								提升个人能力，促进自身成长。
+								（70分）
+							</div>
+
+						</ul>
+					</section>
+
+					<section>
+						<h4>第二季度OKR</h4>
+						<ul>
+							<li>目标1</li>
+							<div style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								了解风控、拼拼宝业务,更加清楚需求、业务方向。
+							</div>
+
+							<li>目标2</li>
+							<div style="font-size: 24px;padding: 30px;color:#3e7fee;">
+								读书
+							</div>
+
+						</ul>
+					</section>
+
+				</section>
+
+
+
+				<section data-markdown data-transition="convex-in concave-out">
+					<script type="text/template">
+						### Thanks🎉🎉🎉
+					</script>
+				</section>
 
 
 
@@ -184,6 +236,11 @@
 			 * 参考
 			 * https://juejin.cn/post/6890545920883032071
 			 */
+			Reveal.configure({ showNotes: true });
+			Reveal.configure({ showNotes: 'separate-page' });
+			Reveal.configure({ pdfMaxPagesPerSlide: 1 })
+			Reveal.configure({ pdfSeparateFragments: false });
+
 		</script>
 
 	</body>
