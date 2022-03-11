@@ -57,19 +57,16 @@
 						<p> <small>分享By <a href="" target="_blank">卢方舟</a> </small> </p>
 					</section>
 					<section data-markdown data-transition="convex-in concave-out">
-						<script type="text/template">
-							#### vue3做了些什么
-							* 分层内部模块(`tree-shaking`)
-                            <!--
-                            基于函数的 API 每一个函数都可以作为 named ES export 被单独引入，
+                        <!--基于函数的 API 每一个函数都可以作为 named ES export 被单独引入，
                             这使得它们对 tree-shaking 非常友好。没有被使用的 API 的相关代码可以在最终打包时被移除。
                             同时，基于函数 API 所写的代码也有更好的压缩效率，因为所有的函数名和 setup 函数体内部的变量名都可以被压缩，
                             但对象和 class 的属性/方法名却不可以。
-                            -->
-								<!--(Layered internal modules)
+								(Layered internal modules)
 								https://juejin.cn/post/6844903544756109319
-								通过tree-shaking来减少javascript运行的体积
-								-->
+								通过tree-shaking来减少javascript运行的体积-->
+						<script type="text/template">
+							#### vue3做了些什么
+							* 分层内部模块(`tree-shaking`)
 							* 用于处理大规模用例的新 API<!-- (解决大型应用的痛点)-->
 							* 运行性能的提升<!--(体积减少约41%,渲染速度55%,内存使用率降低54%)-->
 							* 更好的适配`Typescript` <!--同时支持了jsx与tsx-->
